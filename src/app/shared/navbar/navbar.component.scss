@@ -1,0 +1,25 @@
+.navbar {
+  .navbar-brand {
+    margin: 0;
+    height: 40px;
+    }
+  &.navbar-default {
+    box-shadow: 0 1px 1px rgba(63, 63, 68, 0.1), 1px 1px 1px 1px rgba(63, 63, 68, 0.1);
+  }
+  .nav-custom-title {
+    cursor: context-menu;
+    text-transform: uppercase;
+    color: #707070;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.container-custom {
+  @media screen and (min-width: 993px) {
+    padding: 0 30px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 0 40px;
+  }
+}

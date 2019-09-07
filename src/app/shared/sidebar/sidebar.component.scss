@@ -1,0 +1,104 @@
+
+.sidebar-wrapper {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: none;
+  @media screen and (min-width: 993px) {
+    width: 265px;
+  }
+  .nav {
+    li {
+      &.active, &:hover {
+        a {
+          background: #dfdfdf;
+        }
+      }
+      a {
+        margin: 1px 0;
+        padding: 10px 5px;
+        transition: all 0.5s ease-in-out;
+        @media screen and (min-width: 993px) {
+          padding: 20px;
+        }
+        i {
+          color: #626262;
+        }
+        p {
+          color: #626262;
+          font-size: 14px;
+          font-weight: 500;
+          white-space: normal;
+        }
+      }
+    }
+  }
+  .user {
+    margin-bottom: 20px;
+    .info {
+      display: flex;
+      align-items: center;
+      .photo {
+        float: none;
+        @media screen and (min-width: 993px) {
+          width: 75px;
+          height: 75px;
+        }
+      }
+      a {
+        // flex:1;
+        span {
+          color: #626262;
+          font-weight: 500;
+          font-size: 16px;
+          // word-break: break-all;
+        }
+      }
+    }
+  }
+}
+.status-message {
+  width: 100%;
+  padding: 20px 15px;
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  z-index: 4;
+}
+
+.status-message__logo {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.status-message__content {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  flex-direction: column;
+  text-align: center;
+  .status-message__row {
+    width: 155px;
+    height: 6px;
+    margin: 0 auto 5px;
+    display: inline-block;
+    background: #a5a2a2;
+    border-radius: 20px;
+    position: relative;
+  }
+  .status-message_show {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #009fff;
+    border-radius: 20px;
+    &.yellow {
+      background: #ea8a15;
+    }
+    &.red {
+      background: #d62222;
+    }
+  }
+}

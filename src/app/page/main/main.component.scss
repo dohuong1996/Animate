@@ -1,0 +1,20 @@
+.wrapper {
+  &.wrapper-grey-theme {
+    .main-panel {
+      background: #fff;
+      @media screen and  (min-width: 993px) {
+        width: calc(100% - 265px);
+      }
+    }
+    .sidebar {
+      border-right: 1px solid #cfcfca;
+      @media screen and  (min-width: 993px) {
+        width: 265px;
+      }
+      &:before {
+        background: #eeeeee;
+        opacity: 1;
+      }
+    }
+  }
+}

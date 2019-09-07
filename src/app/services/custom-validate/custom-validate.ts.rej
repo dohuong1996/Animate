@@ -1,0 +1,9 @@
+diff a/src/app/services/custom-validate/custom-validate.ts b/src/app/services/custom-validate/custom-validate.ts	(rejected hunks)
+@@ -0,5 +0,6 @@
+ import { FormControl } from "@angular/forms";
+ export function validatePhone(input: FormControl) {
++    let regex = /^\(?(\d{3})\)?[-\. ]?(\d{3})[-\. ]?(\d{4})( x\d{4})?$/;
+     let result = input.value ? regex.test(input.value.toString()) : true;
+     return result ? null : { validatePhone: true };
+ }
+\ No newline at end of file

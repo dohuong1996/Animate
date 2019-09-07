@@ -1,0 +1,31 @@
+<div class="content">
+  <div  style="flex: 1">
+    <div [@photosAnimation]="photos.length">
+      <div *ngFor="let photo of photos">
+        <img [src]="photo.url" width="250" height="250">
+      </div>
+    </div>
+  </div>
+  <div style="flex: 1">
+    <div  style="margin-bottom: 10px">
+        <button type="button" class="btn btn-success" (click)="onChangePosition('move')">More</button>
+        <button type="button" class="btn btn-danger" (click)="onChangePosition('spin')">Spin</button>
+        <button type="button" class="btn btn-info" (click)="onChangePosition('enlarge')">Enlarge</button>
+        <button type="button" class="btn btn-warning" (click)="onChangePosition(null)">Reset</button>
+    </div>
+    <img [src]="photoURL"
+      width="250" height="250" [@photoState]="position" (@photoState.start)="logAnimation($event)" (@photoState.done)="logAnimation($event)"
+      class="photo" />
+  </div>
+  <!-- Basic Animation Two-State -->
+  <div  style="flex: 1">
+    <button type="button" class="btn btn-success" (click)="toggle()">Toggle PopOver</button>
+    <div [@popOverState]="stateName">
+      <p>
+        <img [src]="photoURL"
+          width="250" height="250" />
+      </p>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,36 @@
+
+<div class="sidebar-wrapper">
+  <div class="user">
+    <!-- <a class="simple-text" style="color: #000; text-align: center; text-transform: uppercase; font-size: 16px; cursor: context-menu;">
+      Welcome Admin
+    </a> -->
+    <div class="info">
+      <div class="photo">
+        <!-- <img src="{{profile?.picture}}" onerror="this.src='../assets/img/avatar.jpg';" /> -->
+        <img src="../assets/img/new_logo.png" />
+      </div>
+      <a data-toggle="collapse" href="#collapseExample" class="collapsed" style="flex:1; cursor: context-menu">
+        <span style="word-break: break-all;">
+          Hey
+          <i style="text-transform: capitalize; word-break: break-all;">Hello!</i>
+        </span>
+      </a>
+    </div>
+  </div>
+  <ul class="nav">
+    <li routerLinkActive="active">
+      <!--If is a single link-->
+      <a routerLink="/user">
+        <i class="fa fa-user-circle" aria-hidden="true"></i>
+        <p>List User</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <!--If is a single link-->
+      <a routerLink="/animate">
+        <i class="fa fa-align-right" aria-hidden="true"></i>
+        <p>Animate</p>
+      </a>
+    </li>
+  </ul>
+</div>
