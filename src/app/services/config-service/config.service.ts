@@ -12,24 +12,24 @@ export class ConfigService {
 
   }
 
-  load(): Promise<boolean> {
-    return new Promise((resolve, reject) => {
+  // load(): Promise<boolean> {
+  //   return new Promise((resolve, reject) => {
 
-      this.httpClient.get('assets/data/config.json')
-        .subscribe(data => {
+  //     this.httpClient.get('assets/data/config.json')
+  //       .subscribe(data => {
 
-          this.settings = data;
+  //         this.settings = data;
 
-          resolve(true);
+  //         resolve(true);
 
-        }, err => {
-          reject(err);
-        });
-    });
-  }
+  //       }, err => {
+  //         reject(err);
+  //       });
+  //   });
+  // }
 
-  get(setting) {
-    return this.settings[setting];
-  }
+  // get(setting) {
+  //   return this.settings[setting];
+  // }
 
 }

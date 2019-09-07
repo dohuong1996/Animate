@@ -21,10 +21,7 @@ import { NgRedux, NgReduxModule } from 'ng2-redux';
 import { IAppState, rootReducer, INITIAL_STATE } from './store';
 
 // Services
-import { ConfigService } from './services/config-service/config.service';
-import { HelperService } from './services/helper-service/helper.service';
 import { ApiService } from './services/api-service/api.service';
-import { PagerService } from './services/page-service/page.service';
 
 // Directives
 
@@ -32,6 +29,13 @@ import { PagerService } from './services/page-service/page.service';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from './guard/auth.guard';
+
+
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducer/user.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { UserEffects } from './effects/user.effects';
+import { reducers, metaReducers } from './reducer/reducer';
 @NgModule({
   imports: [
     FormsModule,
@@ -44,22 +48,18 @@ import { AuthGuard } from './guard/auth.guard';
     HomeModule,
     AppRoutingModule,
     PrimengServiceModule,
+    // StoreModule.provideStore(reducer),
+    // EffectsModule.run(UserEffects),
+    StoreModule.forRoot(reducers, {metaReducers}),
+    EffectsModule.forRoot([UserEffects]),
   ],
   declarations: [
     AppComponent,
     HeaderComponent
   ],
   providers: [
-    ConfigService,
-    HelperService,
     AuthGuard,
 
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appConfigFactory,
-      deps: [ConfigService],
-      multi: true,
-    },
     {
       provide: HTTP_INTERCEPTORS,
       multi: true,
@@ -67,7 +67,6 @@ import { AuthGuard } from './guard/auth.guard';
     },
     ApiService,
     FormBuilder,
-    PagerService
   ],
   bootstrap: [AppComponent]
 })
@@ -78,6 +77,3 @@ export class AppModule {
   }
 }
 
-export function appConfigFactory(config: ConfigService) {
-  return () => config.load();
-}
